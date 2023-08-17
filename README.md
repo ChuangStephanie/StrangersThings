@@ -5,13 +5,16 @@ Build the front end of the online marketplace website.
 Requirements
 
 Project Management Requirements
+
 GitHub Project
 Detailed planning tickets with task descriptions for each one
 Demonstration that each team member made some contribution on the planning of tickets.
 Each student in the pair must have at least one commit towards the final result, in separate branches
 A Github repository containing all relevant code for the project
 Updated Github repository with new commits
+
 Functionality Requirements
+
 Routes via React Router (This is a minimum; you could have more than just these routes. These routes may be named as you wish.)
 /posts
 /profile (with messages)
@@ -35,7 +38,9 @@ Delete posts for which they are not the author
 Send a message to themselves
 All users should be able to:
 Filter posts with a simple text matcher (no fetch call needed here)
+
 Implementation Requirements
+
 Javascript Basics
 variable declaration (correct use of let and const)
 loop usage (map, forEach, for or while loops)
