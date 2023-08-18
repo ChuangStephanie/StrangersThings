@@ -19,4 +19,6 @@ export default function AllPosts() {
         getAllPosts();
     }, []);
 
+    const postsToDisplay = searchParam
+
 }
