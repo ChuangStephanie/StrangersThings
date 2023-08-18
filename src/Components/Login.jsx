@@ -10,12 +10,18 @@ export default function Authenticate({token}) {
 
     async function handleClick() {
         try {
-            const response = await fetch(`${BASE_URL}`, {
-                method: "GET",
+            const response = await fetch(`${BASE_URL}/users/login`, {
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
-                }
+                },
+                body: JSON.stringify({
+                    user: {
+                        username: '',
+                        password: ''
+                    }
+                })
             });
             const result = await response.json();
             setSuccessMessage(result.message, result.data.username);
@@ -25,10 +31,10 @@ export default function Authenticate({token}) {
     }
     return (
     <>
-    <h2>Authenticate!</h2>
+    <h2>Login</h2>
     {successMessage && <p>{successMessage}</p>}
     {error && <p>{error}</p>}
-    <button onClick={handleClick}>Authentication Magic</button>
+    <button onClick={handleClick}>Login</button>
     </>
     )
 }

@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react';
 const COHORT_NAME = "2305-FTB-ET-WEB-PT";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 
-export default function SignUpForm({setToken}) {
+export default function registerUser({setToken}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
@@ -13,9 +13,17 @@ export default function SignUpForm({setToken}) {
         event.preventDefault();
 
         try {
-            const response = await fetch(`${BASE_URL}`, {
+            const response = await fetch(`${BASE_URL}/users/register`, {
                 method: "POST",
-                body: JSON.stringify({username}, {password})
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user: {
+                        username: '',
+                        password: ''
+                    }
+                })
             });
             const result = await response.json();
             setToken(result.token);
