@@ -1,20 +1,13 @@
 import { useState } from 'react'
 import './App.css'
+import AllPosts from './Components/AllPosts'
 
 function App() {
 
   return (
     <>
-    <div className="navbar">
-      //NAVBAR GO HERE
-    </div>
-    <div className="mainbody">
-      <Routes>
-        <Route />
-        <Route />
-        <Route />
-      </Routes>
-    </div>
+=======
+      <AllPosts />
     </>
   )
 }
