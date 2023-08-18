@@ -2,7 +2,7 @@ const COHORT_NAME = "2305-FTB-ET-WEB-PT";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 
 
-export async function getAllPosts() {
+export async function fetchAllPosts() {
     try{
         const response = await fetch(`${BASE_URL}/posts`);
         const result = await response.json();
@@ -12,7 +12,7 @@ export async function getAllPosts() {
     }
 }
 
-export async function getSinglePost(postId) {
+export async function fetchSinglePost(postId) {
     try{
         const response = await fetch(`${BASE_URL}/posts/${postId}`);
         const post = await response.json();
