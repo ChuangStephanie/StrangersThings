@@ -46,7 +46,7 @@ export default function AllPosts() {
             <h5>{posts.price}</h5>
             <div className="details">
                 <button className="detailbutton" onClick={() => navigate(`/${posts.id}`)}>
-                    See Details
+                    Send Message
                 </button>
             </div>
         </div>
