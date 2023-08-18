@@ -7,7 +7,7 @@ export default function SinglePost() {
     const [post, setPost] = useState([]);
     const [error, setError] =useState(null);
     const { pathname } = useLocation();
-    console.log(pathname);
+    console.log(post);
 
     useEffect(() => {
         async function getSinglePost() {

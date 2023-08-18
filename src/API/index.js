@@ -22,9 +22,9 @@ export async function fetchSinglePost(postId) {
     }
 }
 
-export async function deletePostById(playerId) {
+export async function deletePostById(postId) {
     try{
-        const response = await fetch(`${BASE_URL}/posts/${playerId}`);
+        const response = await fetch(`${BASE_URL}/posts/${postId}`);
         const data = await response.json();
         return data;
     } catch(error) {
