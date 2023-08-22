@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom';
 const COHORT_NAME = "2305-FTB-ET-WEB-PT";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 
-export default function Authenticate({token}) {
+export default function Login({token}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState ("")
     const [successMessage, setSuccessMessage] = useState(null);
