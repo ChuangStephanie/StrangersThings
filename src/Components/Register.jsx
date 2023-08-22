@@ -1,10 +1,9 @@
-import React from 'react';
 import {useState, useEffect} from 'react';
 
 const COHORT_NAME = "2305-FTB-ET-WEB-PT";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 
-export default function registerUser({setToken}) {
+export default function Register({setToken}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);

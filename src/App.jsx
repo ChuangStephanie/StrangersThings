@@ -5,6 +5,7 @@ import SinglePost from './Components/SinglePost'; // Import the SinglePost compo
 import DeletePost from './Components/DeletePost'; // Import the DeletePost component
 import NavBar from './Components/NavBar';
 import Login from './Components/Login';
+import Register from './Components/Register';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/post/:postId" element={<SinglePost />} />   {/* Add this route */}
           <Route path="/delete/:postId" element={<DeletePost />} /> {/* Add this route */}
+          <Route path='/register' element={<Register />} />
         </Routes>
       </div>
     </>
