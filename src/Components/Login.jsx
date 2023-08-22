@@ -44,7 +44,7 @@ export default function Login({token}) {
             <label>
                 Password: {" "} <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             </label>
-            <button onClick={(handleClick) => navigate('./AllPosts')}>Login</button>
+            <button onClick={(handleClick) => navigate('/')}>Login</button>
         </form>
     </>
     )
