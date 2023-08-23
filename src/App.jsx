@@ -6,6 +6,8 @@ import DeletePost from './Components/DeletePost';
 import NewPost from './Components/NewPost'; // Import the NewPost component
 import NavBar from './Components/NavBar';
 import Authenticate from './Components/Login';
+import Login from './Components/Login';
+import Profile from './Components/Profile';
 
 function App() {
   return (
