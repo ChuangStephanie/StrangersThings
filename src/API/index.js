@@ -35,3 +35,20 @@ export async function deletePost(postId) {
         console.error("Error deleting post", error);
     }
 }
+
+export async function makePost(postData) {
+    try {
+        const response = await fetch(`${BASE_URL}/posts`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                
+            },
+            body: JSON.stringify({ post: postData })
+        });
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error("Error creating post", error);
+    }
+}
