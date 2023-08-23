@@ -8,12 +8,12 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [userData, setUserData] = useState(null);
-  
   const [successMessage, setSuccessMessage] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  async function handleClick() {
+  async function handleClick(e) {
+    e.preventDefault();
     try {
       const response = await fetch(`${BASE_URL}/users/login`, {
         method: "POST",
