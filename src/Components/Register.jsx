@@ -16,6 +16,7 @@ export default function Register({ setToken }) {
         setError("Username must be at least 8 characters long.");
         return;
     }
+
     if (password !== confirmPassword) {
         setError("Password and Confirm Password must match.");
         return;
@@ -29,8 +30,8 @@ export default function Register({ setToken }) {
         },
         body: JSON.stringify({
           user: {
-            username: "",
-            password: "",
+            username: username,
+            password: password,
           },
         }),
       });

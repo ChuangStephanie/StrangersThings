@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import './App.css';
 import AllPosts from './Components/AllPosts';
 import SinglePost from './Components/SinglePost'; // Import the SinglePost component
@@ -8,6 +9,8 @@ import Login from './Components/Login';
 import Register from './Components/Register';
 
 function App() {
+  const [token, setToken] = useState(null);
+
   return (
     <>
       <div className="container">
@@ -16,14 +19,14 @@ function App() {
       <div className="mainbody">
         <Routes>
           <Route path="/" element={<AllPosts />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/Login" element={<Login token={token}/>} />
           <Route path="/post/:postId" element={<SinglePost />} />   {/* Add this route */}
           <Route path="/delete/:postId" element={<DeletePost />} /> {/* Add this route */}
-          <Route path='/register' element={<Register />} />
+          <Route path='/register' element={<Register setToken={setToken}/>} />
         </Routes>
       </div>
     </>
   );
 }
 
-export default App;
+export default App;s
