@@ -4,6 +4,8 @@ import AllPosts from './Components/AllPosts';
 import SinglePost from './Components/SinglePost'; // Import the SinglePost component
 import DeletePost from './Components/DeletePost'; // Import the DeletePost component
 import NavBar from './Components/NavBar';
+
+
 import Login from './Components/Login';
 import Profile from './Components/Profile';
 
@@ -15,6 +17,14 @@ function App() {
       </div>
       <div className="mainbody">
         <Routes>
+
+
+
+
+
+
+
+          
           <Route path="/" element={<AllPosts />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Profile" element={<Profile />} />
