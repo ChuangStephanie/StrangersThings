@@ -7,6 +7,8 @@ import DeletePost from './Components/DeletePost'; // Import the DeletePost compo
 import NavBar from './Components/NavBar';
 import Login from './Components/Login';
 import Register from './Components/Register';
+import NewPost from './Components/NewPost';
+import Profile from './Components/Profile';
 
 function App() {
   const [token, setToken] = useState(null);
