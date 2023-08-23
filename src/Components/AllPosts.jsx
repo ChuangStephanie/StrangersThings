@@ -22,7 +22,7 @@ export default function AllPosts() {
 
   const postsToDisplay = searchParam
     ? posts.filter((posts) => {
-        posts.name.toLowerCase().includes(searchParam);
+        posts.title.toLowerCase().includes(searchParam);
       })
     : posts;
 
