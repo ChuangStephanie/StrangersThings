@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { BASE_URL, TOKEN_STRING_HERE } from "../API"; // Make sure to import BASE_URL and TOKEN_STRING_HERE
 import { useNavigate } from "react-router-dom";
 
-export default function NewPost() {
+export default function NewPost({ BASE_URL, TOKEN_STRING }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -17,7 +16,7 @@ export default function NewPost() {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${TOKEN_STRING_HERE}`
+          'Authorization': `Bearer ${TOKEN_STRING}`
         },
         body: JSON.stringify({
           post: {
