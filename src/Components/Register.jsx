@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const COHORT_NAME = "2305-FTB-ET-WEB-PT";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
@@ -12,7 +12,7 @@ export default function Register({ setToken }) {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    if (username.lengh < 8) {
+    if (username.length < 8) {
         setError("Username must be at least 8 characters long.");
         return;
     }
