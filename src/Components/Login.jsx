@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 
 const COHORT_NAME = "2305-FTB-ET-WEB-PT";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
@@ -11,7 +11,7 @@ export default function Login() {
   const [successMessage, setSuccessMessage] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-
+  
   async function handleClick(e) {
     e.preventDefault();
     try {
@@ -27,11 +27,11 @@ export default function Login() {
           },
         }),
       });
-      const result = await response.json();
-      setSuccessMessage(result.message, result.data.username);
-      setUserData(result.data);
-      console.log(result);
-      return result;
+      const token = await response.json();
+      setSuccessMessage(token.data.message);
+      setUserData(token.data);
+      console.log(token);
+      return token;
     } catch (error) {
       setError(error.message);
     }
@@ -41,7 +41,7 @@ export default function Login() {
       <h2>Login</h2>
       {successMessage && <p>{successMessage}</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
-      {userData && <p>Welcome, {userData.username}!</p>}
+      {userData && <p>Welcome, {username}!</p>}
       <form onSubmit={handleClick}>
         <label>
           Username:{" "}

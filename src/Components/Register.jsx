@@ -13,13 +13,11 @@ export default function Register({ setToken }) {
     event.preventDefault();
 
     if (username.length < 8) {
-        setError("Username must be at least 8 characters long.");
-        return;
+        return setError("Username must be at least 8 characters long.");
     }
 
     if (password !== confirmPassword) {
-        setError("Password and Confirm Password must match.");
-        return;
+        return setError("Password and Confirm Password must match.");
     }
 
     try {
