@@ -23,6 +23,9 @@ function App() {
           <Route path="/post/:postId" element={<SinglePost />} />   {/* Add this route */}
           <Route path="/delete/:postId" element={<DeletePost />} /> {/* Add this route */}
           <Route path='/register' element={<Register setToken={setToken}/>} />
+          <Route path="/new-post" element={<NewPost />} />{" "}
+          {/* Add this route */}
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </>
