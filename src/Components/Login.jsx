@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const COHORT_NAME = "2305-FTB-ET-WEB-PT";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
@@ -36,6 +36,9 @@ export default function Login() {
       setError(error.message);
     }
   }
+
+  
+
   return (
     <>
       <h2>Login</h2>
