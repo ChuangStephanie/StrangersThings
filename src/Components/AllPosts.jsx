@@ -22,7 +22,7 @@ export default function AllPosts() {
 
   const postsToDisplay = searchParam
     ? posts.filter((posts) => {
-        posts.name.toLowerCase().includes(searchParam);
+        posts.title.toLowerCase().includes(searchParam);
       })
     : posts;
 
@@ -44,9 +44,9 @@ export default function AllPosts() {
             <h3>{posts.title}</h3>
             <h4>{posts.author.username}</h4>
             <h5>{posts.price}</h5>
-            <div className="details">
-                <button className="detailbutton" onClick={() => navigate(`/${posts.id}`)}>
-                    See Details
+            <div className="message">
+                <button className="messagebutton" onClick={() => navigate(`/${posts.id}`)}>
+                    Send Message
                 </button>
             </div>
         </div>
