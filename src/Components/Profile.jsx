@@ -1,16 +1,25 @@
-import {useEffect, useState} from "react";
-import {useNavigate, Link} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
-export default function Profile({
-//need stored session stuff 
-}) {
-    const [activeUser, setActiveUser] = useState(null);
+export default function Profile() {
 
-    const navigate = useNavigate();
+  const [activeUser, setActiveUser] = useState(null);
+  const navigate = useNavigate();
 
-    return (
-        <section id="profile">
-      <h1>Welcome {activeUser?.data.username}</h1>
+  function logOut() {
+    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("token");
+    navigate("/login");
+    return;
+  }
+
+  return (
+    <section id="profile">
+      {sessionStorage.getItem("username") ? (
+        <h2>Welcome {sessionStorage.getItem("username")}</h2>
+      ) : (
+        <h2>Log in or Register as new user</h2>
+      )}
       <div id="profile-messages-cont">
         {activeUser?.data.messages.length < 1 && <h4>No messages</h4>}
         {activeUser?.data.messages.length > 0 && (
@@ -44,7 +53,8 @@ export default function Profile({
             </div>
           </>
         )}
+        <button onClick={logOut}>{sessionStorage.getItem("username") ? "Log Out" : "Login/Register" }</button>
       </div>
     </section>
   );
-}; 
+}
