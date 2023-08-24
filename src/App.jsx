@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<AllPosts />} />
           <Route path="/Login" element={<Login token={token}/>} />
-          <Route path="/messages/:postId" element={<Message />} />   {/* Add this route */}
+          <Route path="/posts/:postId/messages" element={<Message />} />   {/* Add this route */}
           <Route path="/delete/:postId" element={<DeletePost />} /> {/* Add this route */}
           <Route path='/register' element={<Register setToken={setToken}/>} />
           <Route path="/new-post" element={<NewPost />} />{" "}
