@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchAllPosts } from "../API";
-import { useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate } from "react-router-dom";
 
 export default function AllPosts() {
   const [posts, setPosts] = useState([]);
@@ -50,7 +50,18 @@ export default function AllPosts() {
           <div className="message">
             <button
               className="messagebutton"
-              onClick={() => navigate(`/messages/${posts._id}`)}
+              onClick={() =>
+                navigate({
+                  pathname: `/posts/${posts._id}/messages`,
+                  search: createSearchParams({
+                    id: posts._id,
+                    title: posts.title,
+                    author: posts.author.username,
+                    price: posts.price,
+                    description: posts.description
+                  }).toString(),
+                })
+              }
             >
               Send Message
             </button>
