@@ -37,7 +37,7 @@ export default function Login() {
     }
   }
 
-  
+  sessionStorage.setItem("token", userData.token);
 
   return (
     <>
