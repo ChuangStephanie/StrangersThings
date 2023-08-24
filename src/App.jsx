@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import './App.css';
 import AllPosts from './Components/AllPosts';
-import SinglePost from './Components/SinglePost'; // Import the SinglePost component
 import DeletePost from './Components/DeletePost'; // Import the DeletePost component
 import NavBar from './Components/NavBar';
 import Login from './Components/Login';
