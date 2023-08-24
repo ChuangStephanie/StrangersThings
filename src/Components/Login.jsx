@@ -37,7 +37,15 @@ export default function Login() {
     }
   }
 
-  sessionStorage.setItem("token", userData.token);
+    function logIn() {
+        if (userData === null) {
+            return;
+        } else {
+            return sessionStorage.setItem("token", userData.token);
+        }
+    }
+
+    logIn();
 
   return (
     <>
