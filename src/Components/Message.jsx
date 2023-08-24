@@ -1,35 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import { fetchAllPosts } from "../API";
 
 const COHORT_NAME = "2305-FTB-ET-WEB-PT";
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 
-export default function sendMessage(token) {
+export default function Message() {
   //fancy function stuff
   const [error, setError] = useState(null);
-  const [name, setName] = useState("");
-  let { id } = useParams();
+  const [message, setMessage] = useState("");
+  let token = sessionStorage.getItem("token")  
 
-  async function handleSend(event) {
-    event.preventDefault();
-
-    try {
-      const APIresponse = await fetch(`${BASE_URL}/posts/POST_ID/messages`, {
+  async function sendMessage(e) {
+    e.preventDefault();
+    
+    try{
+      const response =  await fetch(`${BASE_URL}/posts/${token}`,{
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify({
           message: {
-          content: "",
-          },
-        }),
+            content: message
+          }
+        })
       });
-
-      const result = await APIresponse.json();
+      const result = await response.json();
       console.log(result);
-      alert("Message sent successfully!");
+      return result
     } catch (error) {
       setError(error);
     }
@@ -39,14 +39,14 @@ export default function sendMessage(token) {
     <>
       <h2>Send a Message</h2>
       <div className="message">
-        <form onSubmit={handleSend}>
+        <form onSubmit={sendMessage}>
           <label>Message: </label>
           <input
             type="text"
-            value={this.state.name}
-            onChange={(e) => setName(e.target.value)}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           />
-          <button type="submit">Send</button>
+          <button>Send</button>
         </form>
       </div>
     </>

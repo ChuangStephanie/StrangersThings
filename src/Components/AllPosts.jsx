@@ -21,11 +21,14 @@ export default function AllPosts() {
   }, []);
 
   const postsToDisplay = searchParam
-    ? posts.filter((posts) => {
-        posts.title.toLowerCase().includes(searchParam);
-      })
+    ? posts.filter((post) => post.title.toLowerCase().includes(searchParam))
     : posts;
-
+  console.log(
+    postsToDisplay.filter((post) =>
+      post.title.toLowerCase().includes(searchParam)
+    )
+  );
+  console.log(searchParam);
   return (
     <>
       <div className="searchbar">
@@ -41,14 +44,17 @@ export default function AllPosts() {
 
       {postsToDisplay.map((posts) => (
         <div key={posts._id} className="post">
-            <h3>{posts.title}</h3>
-            <h4>{posts.author.username}</h4>
-            <h5>{posts.price}</h5>
-            <div className="message">
-                <button className="messagebutton" onClick={() => navigate(`/${posts.id}`)}>
-                    Send Message
-                </button>
-            </div>
+          <h3>{posts.title}</h3>
+          <h4>{posts.author.username}</h4>
+          <h5>{posts.price}</h5>
+          <div className="message">
+            <button
+              className="messagebutton"
+              onClick={() => navigate(`/messages/${posts._id}`)}
+            >
+              Send Message
+            </button>
+          </div>
         </div>
       ))}
     </>
