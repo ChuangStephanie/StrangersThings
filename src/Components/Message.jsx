@@ -13,7 +13,7 @@ export default function Message() {
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
   let token = sessionStorage.getItem("token");
-  console.log(posts.get("id"));
+  console.log(posts);
 
   async function sendMessage(e) {
     e.preventDefault();
@@ -48,7 +48,7 @@ export default function Message() {
   return (
     <>
       <div key={posts.get("id")} className="post">
-        <h3>{posts.get("title")}</h3>
+        <h2>{posts.get("title")}</h2>
         <h4>{posts.get("author")}</h4>
         <h5>{posts.get("price")}</h5>
         <p>{posts.get("description")}</p>
@@ -65,6 +65,10 @@ export default function Message() {
           />
           <button>Send</button>
         </form>
+        <div className="responses">
+          <h2>Responses</h2>
+          <p>{posts.get("messages")}</p>
+        </div>
       </div>
     </>
   );

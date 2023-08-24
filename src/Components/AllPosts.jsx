@@ -59,7 +59,8 @@ export default function AllPosts() {
                     title: posts.title,
                     author: posts.author.username,
                     price: posts.price,
-                    description: posts.description
+                    description: posts.description,
+                    messages: posts.messages.content
                   }).toString(),
                 })
               }
