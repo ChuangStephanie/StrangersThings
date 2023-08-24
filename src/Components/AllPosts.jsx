@@ -40,7 +40,17 @@ export default function AllPosts() {
             onChange={(e) => setSearchParam(e.target.value)}
           />
         </label>
-        <button className="newpost" onClick={() => navigate("/new-post")}>New Post</button>
+        <button className="newpost" onClick={() => navigate({
+                  pathname: `/new-post`,
+                  search: createSearchParams({
+                    id: posts._id,
+                    title: posts.title,
+                    author: posts.author.username,
+                    price: posts.price,
+                    description: posts.description,
+                    messages: posts.messages.content
+                  }).toString(),
+                })}>New Post</button>
       </div>
 
       {postsToDisplay.map((posts) => (

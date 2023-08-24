@@ -1,12 +1,18 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useState } from "react";
 
-export default function NewPost({ BASE_URL, TOKEN_STRING }) {
+const COHORT_NAME = "2305-FTB-ET-WEB-PT";
+const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
+
+
+export default function NewPost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [willDeliver, setWillDeliver] = useState(true);
   const navigate = useNavigate();
+  const [posts] = useSearchParams();
+  let token = sessionStorage.getItem("token");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,7 +22,7 @@ export default function NewPost({ BASE_URL, TOKEN_STRING }) {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${TOKEN_STRING}`
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
           post: {
@@ -33,7 +39,7 @@ export default function NewPost({ BASE_URL, TOKEN_STRING }) {
 
       // Redirect to the AllPosts page after successful post creation
       if (response.ok) {
-        navigate("/AllPosts");
+        navigate("/");
       }
     } catch (err) {
       console.error(err);
@@ -60,7 +66,7 @@ export default function NewPost({ BASE_URL, TOKEN_STRING }) {
           Will Deliver:
           <input type="checkbox" checked={willDeliver} onChange={(e) => setWillDeliver(e.target.checked)} />
         </label>
-        <button type="submit">Create Post</button>
+        <button>Create Post</button>
       </form>
     </div>
   );

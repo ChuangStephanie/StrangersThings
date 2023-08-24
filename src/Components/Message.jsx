@@ -3,6 +3,7 @@ import {
   useParams,
   useSearchParams,
 } from "react-router-dom";
+import DeletePost from "./DeletePost";
 
 
 const COHORT_NAME = "2305-FTB-ET-WEB-PT";
@@ -13,7 +14,7 @@ export default function Message() {
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
   let token = sessionStorage.getItem("token");
-  console.log(posts);
+  console.log(posts.get("messages"));
 
   async function sendMessage(e) {
     e.preventDefault();
@@ -44,6 +45,7 @@ export default function Message() {
       return window.alert("Must be logged in to send message!");
     }    
   }
+  
 
   return (
     <>
@@ -69,6 +71,9 @@ export default function Message() {
           <h2>Responses</h2>
           <p>{posts.get("messages")}</p>
         </div>
+      </div>
+      <div className="deletebutton">
+        <button>Delete Post</button>
       </div>
     </>
   );
