@@ -13,7 +13,7 @@ export async function fetchAllPosts() {
 
 export async function fetchSinglePost(postId) {
     try {
-        const response = await fetch(`${BASE_URL}/posts/${postId}`);
+        const response = await fetch(`${BASE_URL}/posts/${postId}/messages`);
         const post = await response.json();
         return post;
     } catch (error) {
