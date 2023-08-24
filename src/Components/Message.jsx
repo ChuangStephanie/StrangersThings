@@ -22,7 +22,7 @@ export default function sendMessage(token) {
         },
         body: JSON.stringify({
           message: {
-            content: "",
+          content: "",
           },
         }),
       });
