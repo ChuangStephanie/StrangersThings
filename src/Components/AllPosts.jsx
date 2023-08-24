@@ -40,6 +40,7 @@ export default function AllPosts() {
             onChange={(e) => setSearchParam(e.target.value)}
           />
         </label>
+        <button className="newpost" onClick={() => navigate("/new-post")}>New Post</button>
       </div>
 
       {postsToDisplay.map((posts) => (
