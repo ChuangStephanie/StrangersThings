@@ -48,7 +48,7 @@ export default function DeletePost() {
       <h5>{post.price}</h5>
       <p>{post.content}</p>
       <div className="details">
-        <button className="detailbutton" onClick={handleDelete}>
+        <button className="deletebutton" onClick={handleDelete}>
           Delete Post
         </button>
       </div>
