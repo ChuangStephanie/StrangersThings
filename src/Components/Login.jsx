@@ -34,6 +34,7 @@ export default function Login() {
       return token;
     } catch (error) {
       setError(error.message);
+      console.log(error);
     }
   }
 

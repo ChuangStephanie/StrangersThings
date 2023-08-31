@@ -10,6 +10,7 @@ export default function NewPost() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [willDeliver, setWillDeliver] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const [posts] = useSearchParams();
   let token = sessionStorage.getItem("token");
@@ -40,15 +41,19 @@ export default function NewPost() {
       // Redirect to the AllPosts page after successful post creation
       if (response.ok) {
         navigate("/");
+      } else {
+        window.alert("Invalid token, please sign up or log in");
+        navigate("/Login");
       }
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      setError(error.message);
     }
   }
 
   return (
     <div className="new-post">
       <h2>Create New Post</h2>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <label>
           Title:
