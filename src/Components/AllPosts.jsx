@@ -31,6 +31,9 @@ export default function AllPosts() {
   console.log(searchParam);
   return (
     <>
+      <div className="postheader">
+        <h1>Home</h1>
+      </div>
       <div className="searchbar">
         <label>
           Search
@@ -47,7 +50,7 @@ export default function AllPosts() {
 
       {postsToDisplay.map((posts) => (
         <div key={posts._id} className="post">
-          <h3>{posts.title}</h3>
+          <h3 className="posttitle">{posts.title}</h3>
           <h4>{posts.author.username}</h4>
           <h5>{posts.price}</h5>
           <div className="message">
